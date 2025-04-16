@@ -22,16 +22,28 @@ function App(): React.JSX.Element {
             paddingHorizontal: '5%',
             paddingVertical: '5%',
           }}>
-          <View style={{padding: 10, backgroundColor: 'yellow'}}>
-            <Pressable
-              onPress={() => setCount(count + 1)}
-              style={{padding: 10, backgroundColor: 'cyan'}}>
-              <Text>Click me: {count}</Text>
-            </Pressable>
-          </View>
+          <CountButton count={count} setCount={setCount} />
           <TextInputComponent value={value} setValue={setValue} />
         </View>
       </ScrollView>
+    </View>
+  );
+}
+
+function CountButton({
+  count,
+  setCount,
+}: {
+  count: number;
+  setCount: (count: number) => void;
+}) {
+  return (
+    <View style={{padding: 10, backgroundColor: 'yellow'}}>
+      <Pressable
+        onPress={() => setCount(count + 1)}
+        style={{padding: 10, backgroundColor: 'cyan'}}>
+        <Text>Click me: {count}</Text>
+      </Pressable>
     </View>
   );
 }
